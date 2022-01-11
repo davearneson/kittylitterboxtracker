@@ -8,10 +8,15 @@ When I clean the litter box, the light turns green briefly, so I know the sensor
 In addition, if anyone needs to use this restroom before I get to clean the litter box, the light switch still functions normally, and will always turn on to a normal white color when the switch is used, and then back to red when the switch is turned off if the litter box still needs to be cleaned.
 
 ### Light Turns Red When Litter Box Used
-![Kitty Litter Box Sensor](https://imgur.com/UBYxW0r.gif)
+<p align="center">
+<img src="https://imgur.com/GgF5TyJ.gif" width="600" />
+</p>
 
 ### Light Briefly Turns Green, Then Back to Off/Normal When Litter Box Cleaned
-![Kitty Litter Box Sensor](https://imgur.com/jHJ8EVp.gif)
+<p align="center">
+<img src="https://imgur.com/uLngyaW.gif" width="600" />
+</p>
+
 # Hardware
 
 I had some extra Zigbee sensors from other projects laying around, so I incorporated them into this project. Any motion sensor and contact sensor would have worked. I had to buy a new bulb and a Shelly 1 to put behind the switch.
@@ -19,18 +24,22 @@ I had some extra Zigbee sensors from other projects laying around, so I incorpor
 ## Aqara Zigbee Motion Sensor
 
 I stuck [this Aqara Zigbee motion sensor](https://www.amazon.com/Aqara-RTCGQ11LM-Motion-Sensor-White/dp/B07D1CRRVF/ref=sr_1_5?keywords=aqara%20motion%20sensor&qid=1641840401&sprefix=aquara%20mo,aps,108&sr=8-5) under the sink, high enough that it should be blocked from catching any motion not associated with the litter box. There is also a curtain under the front of the sink that stays closed. The sensors have been up and running for about two weeks now, and I haven't had any false detections.
-
-![Kitty Litter Aqara Motion Sensor](https://i.imgur.com/KcAru3x.jpg?1 =650x)
+<p align="center">
+<img src="https://i.imgur.com/KcAru3x.jpg?1" width="600" />
+</p>
 
 ## Sonoff Zigbee Contact Sensor
 Next, I stuck [this Sonoff Zigbee Contact Sensor I got from AliExpress](https://www.aliexpress.com/item/1005001928750103.html?spm=a2g0o.store_pc_groupList.8148356.26.36d9179axo6qht) on the Litter Genie so I could detect when it was opened.
-
-![Litter Genie Zigbee Sensor](https://i.imgur.com/z5tyUfU.jpg?1 =650x)
+<p align="center">
+<img src="https://i.imgur.com/z5tyUfU.jpg?1" width="600" />
+</p>
 
 ## Feit Electric Bulb (using Tuya Local)
 The bathroom where we keep the litter box has a light fixture with an exposed bulb, and I wanted to be able to continue using an Edison bulb. The only smart Edison bulb I could find that was capable of changing colors was this wifi one from [Feit Electric](https://www.amazon.com/Feit-Electric-ST2160-RGBW-FIL/dp/B089CN4WRN/ref=sr_1_7?keywords=smart%20edison%20bulbs&qid=1641838719&sr=8-7). It's not super bright, but it is good enough for this application.
+<p align="center">
+<img src="https://i.imgur.com/UzYRWVq.png" width="150" />
+</p>
 
-![Feit Electric Bulb](https://i.imgur.com/UzYRWVq.png =x250)
 I set the bulb up in Home Assistant using the [Local Tuya integration from HACS](https://github.com/rospogrigio/localtuya/). I had to do a little bit of trial and error to find the values I wanted to use for the white and green light settings.
 
 ## Shelly 1
@@ -89,8 +98,10 @@ I added the helper so I could have it play middle man for notifications and prov
 ## Then, I want the lights to be set according to the helper's status
 
 I want the light switch to function normally so I don't run afoul of my spouse and guests, since this is also the guest bathroom. I am using a Shelly 1 wired behind the switch, set to "detached mode," so the bulb is always powered, and Home Assistant is turning the bulb on and off when it detects a switch state change. The shelly switch is "binary_sensor.half_bath_shelly_1_input_0" and the light bulb is "light.half_bath_light"
+<p align="center">
+<img src="https://imgur.com/dfsPdgT.gif" width="600" />
+</p>
 
-![Kitty Litter Box Sensor](https://imgur.com/PwoMREP.gif)
 ### First, an automation to control what happens to the lights when the helper's status changes:
 ```
 - alias: Kitty Litter Box Tracker - Lights
@@ -172,7 +183,10 @@ I want the light switch to function normally so I don't run afoul of my spouse a
   mode: single
 ```
 ### Then, an automation to control what happens to the lights when the light switch is used:
-![Kitty Litter Box Sensor](https://imgur.com/XkQQR6L.gif)
+<p align="center">
+<img src="https://imgur.com/yU31PO1.gif" width="600" />
+</p>
+
 ```
 - alias: Lights - Half Bath - Switch Automations
   description: ''
@@ -379,8 +393,9 @@ As I mentioned before, I added the helper so I could have it play middle man for
 # Conditional Cards for Lovelace UI
 
 I already have a cat tab on my Lovelace dashboard because [we track the cat's insulin shots](https://github.com/davearneson/Kitty-Shot-Tracker#readme) - so I just added a couple of conditional cards that only show if the litter box needs to be cleaned. Basically, the idea is that I never use these because the process is automated. However, it is sometimes nice to just have a record of if it's currently dirty, and if so, since when?
-
-![Kitty Shot Sensor](https://imgur.com/S4CQuHv.jpg)
+<p align="center">
+<img src="https://imgur.com/S4CQuHv.jpg" width="400" />
+</p>
 
 ```
 type: vertical-stack
@@ -412,5 +427,8 @@ cards:
       icon_height: 50px
 ```
 # CAT TAX
-![Kitty Tax](https://i.redd.it/806k5whws8t71.jpg =500x)
+<p align="center">
+<img src="https://i.redd.it/806k5whws8t71.jpg" width="600" />
+</p>
+
 (#theonewhopoops)
